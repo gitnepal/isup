@@ -23,3 +23,12 @@ isup.sh is a simple bash tool made for checking alive hosts, subdomains from a d
 
 ## FILES
 your output result are stored inside the tmp directory of the script path with valid-filename and invalid-filename pattern.
+
+## NOTES
+```
+DEMO FILE : https://hastebin.com/ahelalunan.css
+```
+```
+FASTER THAN CURL : UPDATED FROM 
+https://gist.github.com/gitnepal/c7cec96a09abc0f39e86149938fd1e67
+```
