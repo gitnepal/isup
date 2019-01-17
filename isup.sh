@@ -6,6 +6,7 @@ GREEN='\033[92m'
 ORANGE='\033[93m'
 RESET='\e[0m'
 TARGET="$1"
+CURRENT_PATH=$(pwd)
 
 if [ -z $TARGET ]; then
 echo -e "$RED  _                           _      $RESET "
@@ -36,6 +37,7 @@ echo ""
     exit
 fi
 
+createdir=$(mkdir -p "$CURRENT_PATH/tmp/")
 echo -e "$RED  _                           _      $RESET "
 echo -e "$RED / |___ _   _ _ __        ___| |__   $RESET "
 echo -e "$RED | / __| | | | '_ \      / __| '_ \  $RESET "
@@ -51,11 +53,14 @@ do
     ping -c1 -W1 $foo > /dev/null 2>&1
     if [[ $? -eq 0 ]];
     then
-        echo -e "$foo" | tee -a $TARGET-working.txt
+        echo -e "$ORANGE [+]--- VALID ---[+] $foo $RESET" 
+        echo -e "$foo" | tee -a $CURRENT_PATH/tmp/valid-$TARGET > /dev/null 2>&1
+        
     else
-        echo -e "$foo" | tee -a $TARGET-nw.txt
+        echo -e "$foo" | tee -a $CURRENT_PATH/tmp/notvalid-$TARGET
     fi
 done
-echo -e "$ORANGE [+] Working SubDomains saved to: $TARGET-working.txt"
-echo -e "$ORANGE [+] Invalid SubDomains saved to: $TARGET-nw.txt"
-echo -e "$ORANGE + -- ----------------------------=[Done!]=----------------------------------- -- +$RESET"
+echo -e ""
+echo -e "$BLUE  Working SubDomains saved to: tmp/valid-$TARGET.txt"
+echo -e "$BLUE  Invalid SubDomains saved to: tmp/notvalid-$TARGET.txt"
+echo -e "$BLUE + -- ----------------------------=[Done!]=----------------------------------- -- +$RESET"
