@@ -32,7 +32,7 @@ echo -e "$BLUE |_|___/\__,_| .__/  (_) |___/_| |_| $RESET "
 echo -e "$BLUE             |_|                     $RESET "
 echo ""
 	echo -e "$GREEN [+] by @___0x00$RESET"
-	echo -e "$GREEN [+] http://rootnep.al$RESET"
+	echo -e "$GREEN [+] https://medium.com/admin. $RESET"
     echo -e "$GREEN [+] Find alive host from huge domains dumps $RESET"
 	echo -e "$GREEN [-] Usage: isup.sh <files>$RESET"
     exit
@@ -56,7 +56,7 @@ echo -e ""
 echo -e "$ORANGE [+] by @___0x00$RESET"
 echo -e "$ORANGE + ------------------------------=[Gathering Subdomains]=-------------- +$RESET"
 echo -e ""
-for foo in $(cat $TARGET) #demolist: https://hastebin.com/ahelalunan.css
+for foo in $(cat $TARGET) #demolist: https://hastebin.com/ahelalunan.css #expired
 do
     ping -c1 -W1 $foo > /dev/null 2>&1
     if [[ $? -eq 0 ]];
