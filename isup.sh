@@ -58,7 +58,7 @@ echo -e "$ORANGE + ------------------------------=[Gathering Subdomains]=-------
 echo -e ""
 for foo in $(cat $TARGET) #demolist: https://hastebin.com/ahelalunan.css #expired
 do
-    ping -c1 -W1 $foo > /dev/null 2>&1
+    ping -c1 -W1 -s1 $foo > /dev/null 2>&1
     if [[ $? -eq 0 ]];
     then
         echo -e "$ORANGE [+]--- VALID ---[+] $foo $RESET"
